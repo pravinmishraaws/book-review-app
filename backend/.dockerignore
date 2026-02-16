@@ -1,0 +1,13 @@
+# ============================================
+# Ignore files not needed in backend image build
+# ============================================
+
+.git
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.env
+.env.*
+coverage
+.DS_Store

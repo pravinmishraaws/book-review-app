@@ -1,54 +1,90 @@
-version: '2.1'
-
 services:
+  # ============================================
+  # MySQL database service
+  # ============================================
   mysql:
     image: mysql:8.0
     container_name: mysql_container
-    restart: always
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost --ssl-mode=REQUIRED -uroot -p$$MYSQL_ROOT_PASSWORD || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 20s
     environment:
-      MYSQL_ROOT_PASSWORD: my-secret-pw
-      MYSQL_DATABASE: book_review_db
-      MYSQL_USER: pravin
-      MYSQL_PASSWORD: Demo12@Test23
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-my-secret-pw}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-book_review_db}
+      MYSQL_USER: ${MYSQL_USER:-pravin}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-Demo12@Test23}
     ports:
-      - "3306:3306"
+      - "${MYSQL_HOST_PORT:-3307}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./mysql/conf.d:/etc/mysql/conf.d:ro
+      - ./mysql/ssl:/etc/mysql/ssl:ro
+    networks:
+      - book_review_network
 
+  # ============================================
+  # Backend API service
+  # ============================================
   backend:
-    build: ./backend
+    build:
+      context: ./backend
     container_name: backend_container
-    restart: always
     depends_on:
       mysql:
         condition: service_healthy
     environment:
-      PORT: 3001
-      DB_HOST: mysql
-      DB_NAME: book_review_db
-      DB_USER: pravin
-      DB_PASS: Demo12@Test23
+      PORT: ${BACKEND_PORT:-3001}
+      DB_HOST: ${DB_HOST:-mysql}
+      DB_PORT: ${DB_PORT:-3306}
+      DB_NAME: ${DB_NAME:-book_review_db}
+      DB_USER: ${DB_USER:-pravin}
+      DB_PASS: ${DB_PASS:-Demo12@Test23}
       DB_DIALECT: mysql
-      JWT_SECRET: mysecretkey
-      ALLOWED_ORIGINS: http://<FRONTEND PUBLIC IP>:3000
+      JWT_SECRET: ${JWT_SECRET:-mysecretkey}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
     ports:
       - "3001:3001"
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - book_review_network
 
+  # ============================================
+  # Frontend service (Next.js dev server)
+  # ============================================
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3001}
     container_name: frontend_container
-    restart: always
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     environment:
-      NEXT_PUBLIC_API_URL: http://<BACKEND PUBLIC IP>:3001
+      PORT: ${FRONTEND_PORT:-3000}
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3001}
     ports:
       - "3000:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - book_review_network
 
 volumes:
   mysql_data:
+
+networks:
+  book_review_network:
+    driver: bridge
