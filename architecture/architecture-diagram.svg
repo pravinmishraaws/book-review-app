@@ -1,0 +1,295 @@
+<svg viewBox="0 0 1100 780" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1923;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#1a2a3a;stop-opacity:1"/>
+    </linearGradient>
+    <linearGradient id="vpcGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1b3a5c;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#0d2137;stop-opacity:0.6"/>
+    </linearGradient>
+    <linearGradient id="webGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a4a6e;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#0f2d47;stop-opacity:0.5"/>
+    </linearGradient>
+    <linearGradient id="appGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a3d5c;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#0d2438;stop-opacity:0.5"/>
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2e50;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#0d1c35;stop-opacity:0.5"/>
+    </linearGradient>
+    <linearGradient id="albPubGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e67e22"/>
+      <stop offset="100%" style="stop-color:#d35400"/>
+    </linearGradient>
+    <linearGradient id="albIntGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8e44ad"/>
+      <stop offset="100%" style="stop-color:#6c3483"/>
+    </linearGradient>
+    <linearGradient id="ec2WebGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60"/>
+      <stop offset="100%" style="stop-color:#1e8449"/>
+    </linearGradient>
+    <linearGradient id="ec2AppGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2980b9"/>
+      <stop offset="100%" style="stop-color:#1f618d"/>
+    </linearGradient>
+    <linearGradient id="rdsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c"/>
+      <stop offset="100%" style="stop-color:#c0392b"/>
+    </linearGradient>
+    <linearGradient id="internetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a085"/>
+      <stop offset="100%" style="stop-color:#0e6655"/>
+    </linearGradient>
+    <!-- Glow filters -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <!-- Arrow marker -->
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#e67e22"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#8e44ad"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#27ae60"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2980b9"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#e74c3c"/>
+    </marker>
+    <marker id="arrowTeal" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#16a085"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="780" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.04">
+    <line x1="0" y1="50" x2="1100" y2="50" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="100" x2="1100" y2="100" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="150" x2="1100" y2="150" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1100" y2="200" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="250" x2="1100" y2="250" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="300" x2="1100" y2="300" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="350" x2="1100" y2="350" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1100" y2="400" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="450" x2="1100" y2="450" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="500" x2="1100" y2="500" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="550" x2="1100" y2="550" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="600" x2="1100" y2="600" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="650" x2="1100" y2="650" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="700" x2="1100" y2="700" stroke="#ffffff" stroke-width="1"/>
+    <line x1="0" y1="750" x2="1100" y2="750" stroke="#ffffff" stroke-width="1"/>
+    <line x1="50" y1="0" x2="50" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="100" y1="0" x2="100" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="150" y1="0" x2="150" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="250" y1="0" x2="250" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="300" y1="0" x2="300" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="350" y1="0" x2="350" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="450" y1="0" x2="450" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="500" y1="0" x2="500" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="550" y1="0" x2="550" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="650" y1="0" x2="650" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="700" y1="0" x2="700" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="750" y1="0" x2="750" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="850" y1="0" x2="850" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="950" y1="0" x2="950" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="780" stroke="#ffffff" stroke-width="1"/>
+    <line x1="1050" y1="0" x2="1050" y2="780" stroke="#ffffff" stroke-width="1"/>
+  </g>
+
+  <!-- Title -->
+  <text x="550" y="36" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff" letter-spacing="1">Book Review App — AWS Three-Tier Architecture</text>
+  <text x="550" y="54" text-anchor="middle" font-size="11" fill="#7fb3d3" letter-spacing="2">VPC: 10.0.0.0/16 · us-east-1 · Multi-AZ</text>
+
+  <!-- ═══════════════════════════════ INTERNET ═══════════════════════════════ -->
+  <rect x="420" y="68" width="260" height="56" rx="12" fill="url(#internetGrad)" filter="url(#shadow)"/>
+  <text x="550" y="89" text-anchor="middle" font-size="10" fill="#a8e6cf" font-weight="600" letter-spacing="1">INTERNET / USERS</text>
+  <!-- Globe icon -->
+  <circle cx="456" cy="96" r="12" fill="none" stroke="#a8e6cf" stroke-width="1.5"/>
+  <ellipse cx="456" cy="96" rx="6" ry="12" fill="none" stroke="#a8e6cf" stroke-width="1"/>
+  <line x1="444" y1="96" x2="468" y2="96" stroke="#a8e6cf" stroke-width="1"/>
+  <text x="550" y="112" text-anchor="middle" font-size="10" fill="#d5f5e3">HTTP Port 80 — Public Access</text>
+
+  <!-- Arrow: Internet → Public ALB -->
+  <line x1="550" y1="124" x2="550" y2="148" stroke="#16a085" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowTeal)"/>
+
+  <!-- ═══════════════════════════════ VPC BOX ═══════════════════════════════ -->
+  <rect x="30" y="135" width="1040" height="610" rx="16" fill="url(#vpcGrad)" stroke="#2e86c1" stroke-width="1.5" stroke-dasharray="8,4"/>
+  <text x="50" y="158" font-size="11" fill="#2e86c1" font-weight="700" letter-spacing="2">AWS VPC — 10.0.0.0/16</text>
+
+  <!-- ═══════════════════════ PUBLIC ALB ═══════════════════════ -->
+  <rect x="350" y="163" width="400" height="58" rx="10" fill="url(#albPubGrad)" filter="url(#shadow)"/>
+  <!-- ALB icon: two horizontal bars -->
+  <rect x="370" y="179" width="28" height="5" rx="2" fill="#fff" opacity="0.9"/>
+  <rect x="370" y="189" width="20" height="5" rx="2" fill="#fff" opacity="0.6"/>
+  <rect x="370" y="199" width="24" height="5" rx="2" fill="#fff" opacity="0.7"/>
+  <text x="550" y="183" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="700" letter-spacing="1">PUBLIC APPLICATION LOAD BALANCER</text>
+  <text x="550" y="198" text-anchor="middle" font-size="10" fill="#fdebd0">Port 80 — Internet-facing — Routes to Web EC2s</text>
+  <text x="550" y="212" text-anchor="middle" font-size="9" fill="#fad7a0" letter-spacing="1">PUBLIC SUBNETS: 10.0.1.0/24 · 10.0.2.0/24</text>
+
+  <!-- Arrow: Public ALB → Web Tier -->
+  <line x1="550" y1="221" x2="550" y2="245" stroke="#e67e22" stroke-width="2" marker-end="url(#arrowOrange)"/>
+
+  <!-- ═══════════════════════ WEB TIER ═══════════════════════ -->
+  <rect x="50" y="248" width="1000" height="148" rx="12" fill="url(#webGrad)" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="68" y="268" font-size="10" fill="#27ae60" font-weight="700" letter-spacing="2">WEB TIER — PUBLIC SUBNETS</text>
+
+  <!-- AZ label left -->
+  <rect x="65" y="278" width="120" height="16" rx="4" fill="#1e5631" opacity="0.7"/>
+  <text x="125" y="290" text-anchor="middle" font-size="9" fill="#a9dfbf" letter-spacing="1">us-east-1a · 10.0.1.0/24</text>
+
+  <!-- AZ label right -->
+  <rect x="915" y="278" width="120" height="16" rx="4" fill="#1e5631" opacity="0.7"/>
+  <text x="975" y="290" text-anchor="middle" font-size="9" fill="#a9dfbf" letter-spacing="1">us-east-1b · 10.0.2.0/24</text>
+
+  <!-- EC2 Web AZ1 -->
+  <rect x="130" y="300" width="340" height="80" rx="10" fill="url(#ec2WebGrad)" filter="url(#shadow)"/>
+  <!-- EC2 icon: server shape -->
+  <rect x="148" y="316" width="22" height="16" rx="2" fill="#fff" opacity="0.2"/>
+  <rect x="148" y="316" width="22" height="4" rx="1" fill="#fff" opacity="0.5"/>
+  <rect x="148" y="322" width="22" height="4" rx="1" fill="#fff" opacity="0.3"/>
+  <rect x="148" y="328" width="22" height="4" rx="1" fill="#fff" opacity="0.2"/>
+  <text x="310" y="322" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="700">EC2 — Web Server (AZ1)</text>
+  <text x="310" y="337" text-anchor="middle" font-size="10" fill="#d5f5e3">Ubuntu · Nginx · Next.js</text>
+  <text x="310" y="352" text-anchor="middle" font-size="9" fill="#a9dfbf">Port 80 · Public Subnet · 10.0.1.0/24</text>
+  <text x="310" y="367" text-anchor="middle" font-size="9" fill="#a9dfbf">Security Group: Web SG (HTTP 80 inbound)</text>
+
+  <!-- EC2 Web AZ2 -->
+  <rect x="630" y="300" width="340" height="80" rx="10" fill="url(#ec2WebGrad)" filter="url(#shadow)"/>
+  <rect x="648" y="316" width="22" height="16" rx="2" fill="#fff" opacity="0.2"/>
+  <rect x="648" y="316" width="22" height="4" rx="1" fill="#fff" opacity="0.5"/>
+  <rect x="648" y="322" width="22" height="4" rx="1" fill="#fff" opacity="0.3"/>
+  <rect x="648" y="328" width="22" height="4" rx="1" fill="#fff" opacity="0.2"/>
+  <text x="810" y="322" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="700">EC2 — Web Server (AZ2)</text>
+  <text x="810" y="337" text-anchor="middle" font-size="10" fill="#d5f5e3">Ubuntu · Nginx · Next.js</text>
+  <text x="810" y="352" text-anchor="middle" font-size="9" fill="#a9dfbf">Port 80 · Public Subnet · 10.0.2.0/24</text>
+  <text x="810" y="367" text-anchor="middle" font-size="9" fill="#a9dfbf">Security Group: Web SG (HTTP 80 inbound)</text>
+
+  <!-- Arrows: Web EC2s → Internal ALB -->
+  <line x1="310" y1="380" x2="310" y2="418" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="810" y1="380" x2="810" y2="418" stroke="#27ae60" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <line x1="310" y1="428" x2="440" y2="428" stroke="#27ae60" stroke-width="1.5"/>
+  <line x1="810" y1="428" x2="660" y2="428" stroke="#27ae60" stroke-width="1.5"/>
+
+  <!-- ═══════════════════════ INTERNAL ALB ═══════════════════════ -->
+  <rect x="330" y="408" width="440" height="54" rx="10" fill="url(#albIntGrad)" filter="url(#shadow)"/>
+  <rect x="348" y="421" width="24" height="4" rx="2" fill="#fff" opacity="0.9"/>
+  <rect x="348" y="429" width="18" height="4" rx="2" fill="#fff" opacity="0.6"/>
+  <rect x="348" y="437" width="21" height="4" rx="2" fill="#fff" opacity="0.7"/>
+  <text x="550" y="427" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="700" letter-spacing="1">INTERNAL APPLICATION LOAD BALANCER</text>
+  <text x="550" y="442" text-anchor="middle" font-size="10" fill="#e8daef">Port 3001 — Internal only — Routes to App EC2s</text>
+  <text x="550" y="455" text-anchor="middle" font-size="9" fill="#d7bde2" letter-spacing="1">PRIVATE SUBNETS: 10.0.3.0/24 · 10.0.4.0/24</text>
+
+  <!-- Arrow: Internal ALB → App Tier -->
+  <line x1="550" y1="462" x2="550" y2="484" stroke="#8e44ad" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- ═══════════════════════ APP TIER ═══════════════════════ -->
+  <rect x="50" y="487" width="1000" height="148" rx="12" fill="url(#appGrad)" stroke="#2980b9" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="68" y="507" font-size="10" fill="#2980b9" font-weight="700" letter-spacing="2">APP TIER — PRIVATE SUBNETS</text>
+
+  <!-- AZ labels -->
+  <rect x="65" y="515" width="120" height="16" rx="4" fill="#154360" opacity="0.7"/>
+  <text x="125" y="527" text-anchor="middle" font-size="9" fill="#aed6f1" letter-spacing="1">us-east-1a · 10.0.3.0/24</text>
+  <rect x="915" y="515" width="120" height="16" rx="4" fill="#154360" opacity="0.7"/>
+  <text x="975" y="527" text-anchor="middle" font-size="9" fill="#aed6f1" letter-spacing="1">us-east-1b · 10.0.4.0/24</text>
+
+  <!-- EC2 App AZ1 -->
+  <rect x="130" y="535" width="340" height="80" rx="10" fill="url(#ec2AppGrad)" filter="url(#shadow)"/>
+  <rect x="148" y="551" width="22" height="16" rx="2" fill="#fff" opacity="0.2"/>
+  <rect x="148" y="551" width="22" height="4" rx="1" fill="#fff" opacity="0.5"/>
+  <rect x="148" y="557" width="22" height="4" rx="1" fill="#fff" opacity="0.3"/>
+  <rect x="148" y="563" width="22" height="4" rx="1" fill="#fff" opacity="0.2"/>
+  <text x="310" y="557" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="700">EC2 — App Server (AZ1)</text>
+  <text x="310" y="572" text-anchor="middle" font-size="10" fill="#d6eaf8">Ubuntu · Node.js · Express.js</text>
+  <text x="310" y="587" text-anchor="middle" font-size="9" fill="#aed6f1">Port 3001 · Private Subnet · 10.0.3.0/24</text>
+  <text x="310" y="602" text-anchor="middle" font-size="9" fill="#aed6f1">Security Group: App SG (Web SG → 3001 only)</text>
+
+  <!-- EC2 App AZ2 -->
+  <rect x="630" y="535" width="340" height="80" rx="10" fill="url(#ec2AppGrad)" filter="url(#shadow)"/>
+  <rect x="648" y="551" width="22" height="16" rx="2" fill="#fff" opacity="0.2"/>
+  <rect x="648" y="551" width="22" height="4" rx="1" fill="#fff" opacity="0.5"/>
+  <rect x="648" y="557" width="22" height="4" rx="1" fill="#fff" opacity="0.3"/>
+  <rect x="648" y="563" width="22" height="4" rx="1" fill="#fff" opacity="0.2"/>
+  <text x="810" y="557" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="700">EC2 — App Server (AZ2)</text>
+  <text x="810" y="572" text-anchor="middle" font-size="10" fill="#d6eaf8">Ubuntu · Node.js · Express.js</text>
+  <text x="810" y="587" text-anchor="middle" font-size="9" fill="#aed6f1">Port 3001 · Private Subnet · 10.0.4.0/24</text>
+  <text x="810" y="602" text-anchor="middle" font-size="9" fill="#aed6f1">Security Group: App SG (Web SG → 3001 only)</text>
+
+  <!-- Arrows: App EC2s → DB Tier -->
+  <line x1="310" y1="615" x2="310" y2="653" stroke="#2980b9" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="810" y1="615" x2="810" y2="653" stroke="#2980b9" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <line x1="310" y1="663" x2="440" y2="663" stroke="#2980b9" stroke-width="1.5"/>
+  <line x1="810" y1="663" x2="660" y2="663" stroke="#2980b9" stroke-width="1.5"/>
+
+  <!-- ═══════════════════════ DATABASE TIER ═══════════════════════ -->
+  <rect x="50" y="643" width="1000" height="92" rx="12" fill="url(#dbGrad)" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="68" y="663" font-size="10" fill="#e74c3c" font-weight="700" letter-spacing="2">DATABASE TIER — PRIVATE SUBNETS</text>
+
+  <!-- RDS Primary -->
+  <rect x="130" y="670" width="300" height="54" rx="10" fill="url(#rdsGrad)" filter="url(#shadow)"/>
+  <!-- DB cylinder icon -->
+  <ellipse cx="158" cy="681" rx="12" ry="4" fill="#fff" opacity="0.3"/>
+  <rect x="146" y="681" width="24" height="16" fill="#fff" opacity="0.1"/>
+  <ellipse cx="158" cy="697" rx="12" ry="4" fill="#fff" opacity="0.2"/>
+  <text x="290" y="686" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="700">RDS MySQL — Primary</text>
+  <text x="290" y="700" text-anchor="middle" font-size="9" fill="#fadbd8">Port 3306 · Multi-AZ · 10.0.5.0/24</text>
+  <text x="290" y="713" text-anchor="middle" font-size="9" fill="#fadbd8">SG: DB SG (App SG → 3306 only)</text>
+
+  <!-- Multi-AZ badge -->
+  <rect x="395" y="675" width="75" height="20" rx="10" fill="#922b21"/>
+  <text x="432" y="689" text-anchor="middle" font-size="9" fill="#fadbd8" font-weight="700">MULTI-AZ ✓</text>
+
+  <!-- Sync arrow -->
+  <line x1="480" y1="697" x2="620" y2="697" stroke="#e74c3c" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="550" y="692" text-anchor="middle" font-size="8" fill="#e74c3c">sync</text>
+
+  <!-- RDS Read Replica -->
+  <rect x="670" y="670" width="300" height="54" rx="10" fill="#922b21" filter="url(#shadow)"/>
+  <ellipse cx="698" cy="681" rx="12" ry="4" fill="#fff" opacity="0.3"/>
+  <rect x="686" y="681" width="24" height="16" fill="#fff" opacity="0.1"/>
+  <ellipse cx="698" cy="697" rx="12" ry="4" fill="#fff" opacity="0.2"/>
+  <text x="830" y="686" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="700">RDS MySQL — Read Replica</text>
+  <text x="830" y="700" text-anchor="middle" font-size="9" fill="#fadbd8">Port 3306 · Async Replica · 10.0.6.0/24</text>
+  <text x="830" y="713" text-anchor="middle" font-size="9" fill="#fadbd8">SG: DB SG (App SG → 3306 only)</text>
+
+  <!-- ═══════════════════════ LEGEND ═══════════════════════ -->
+  <rect x="50" y="748" width="1000" height="22" rx="6" fill="#0d1b2a" opacity="0.8"/>
+  <circle cx="90" cy="759" r="5" fill="#27ae60"/>
+  <text x="100" y="763" font-size="9" fill="#a9dfbf">Web Tier (Public)</text>
+  <circle cx="210" cy="759" r="5" fill="#2980b9"/>
+  <text x="220" y="763" font-size="9" fill="#aed6f1">App Tier (Private)</text>
+  <circle cx="330" cy="759" r="5" fill="#e74c3c"/>
+  <text x="340" y="763" font-size="9" fill="#fadbd8">DB Tier (Private)</text>
+  <circle cx="450" cy="759" r="5" fill="#e67e22"/>
+  <text x="460" y="763" font-size="9" fill="#fad7a0">Public ALB</text>
+  <circle cx="540" cy="759" r="5" fill="#8e44ad"/>
+  <text x="550" y="763" font-size="9" fill="#d7bde2">Internal ALB</text>
+  <circle cx="640" cy="759" r="5" fill="#16a085"/>
+  <text x="650" y="763" font-size="9" fill="#a2d9ce">Internet</text>
+  <text x="850" y="763" font-size="9" fill="#5d6d7e">--- Private/Internal traffic</text>
+  <line x1="810" y1="759" x2="846" y2="759" stroke="#5d6d7e" stroke-width="1.5" stroke-dasharray="4,2"/>
+</svg>
