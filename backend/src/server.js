@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 // Read allowed origins from environment variables
-const allowedOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : ["http://localhost:3000"];
+const allowedOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : ["http://localhost:3000"]; //add LB IP to list
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -18,6 +18,9 @@ app.use(cors({
     }
   },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+
 }));
 
 // Debugging: Log incoming requests
