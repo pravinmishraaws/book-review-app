@@ -42,6 +42,7 @@ async function startServer() {
     await Review.sync({ alter: true });
 
     console.log("✅ Database schema updated successfully!");
+    console.log("🛢️ Database connected successfully! Ready for queries.");
 
     // Insert sample users if table is empty
     const userCount = await User.count();
