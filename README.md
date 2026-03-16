@@ -136,5 +136,6 @@ Students will gain hands-on experience in:
 - Full-stack project deployment from scratch
 
 This Book Review App serves as one of the **4 real-world DevOps projects** taught in the course.
+Deployed by Michael Uche Vincent on Azure — 3-tier architecture with VNet, Load Balancers, and MySQL Flexible Server.
 
 #### Testing CICD Pipeline
