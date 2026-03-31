@@ -1,0 +1,54 @@
+
+{
+  "mcpServers": {
+    "terraform": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-v",
+        "/home/dev-dowusubekoe/my-workspace/1-cloud-computing_devops/courses/devops-journey-pravin-mishra/03-automation/week-10-terraform/projects/deploy-book-review-app-azure/book-review-app/terraform:/workspace",
+        "-w",
+        "/workspace",
+        "hashicorp/terraform-mcp-server"
+      ]
+    },
+    "aws": {
+      "command": "/home/dev-dowusubekoe/.local/bin/uv",
+      "args": [
+        "tool",
+        "run",
+        "--from",
+        "awslabs.aws-api-mcp-server@latest",
+        "awslabs.aws-api-mcp-server",
+        "--allow-env"
+      ],
+      "env": {
+        "AWS_REGION": "us-east-1",
+        "AWS_PROFILE": "cloud-eng-iac",
+        "AWS_ACCESS_KEY_ID": "",
+        "AWS_SECRET_ACCESS_KEY": "",
+        "HOME": "/home/dev-dowusubekoe",
+        "FASTMCP_LOG_LEVEL": "DEBUG"
+      },
+      "timeout": 60000
+    },
+    "azure": {
+    "command": "/home/dev-dowusubekoe/.local/bin/uv",
+    "args": [
+      "tool",
+      "run",
+      "@modelcontextprotocol/server-azure"
+    ],
+    "env": {
+      "AZURE_SUBSCRIPTION_ID": "",
+      "AZURE_CLIENT_ID": "",
+      "AZURE_CLIENT_SECRET": "",
+      "AZURE_TENANT_ID": "",
+      "HOME": "/home/dev-dowusubekoe"
+    },
+    "timeout": 60000
+  }
+  }
+}

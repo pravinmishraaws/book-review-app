@@ -1,0 +1,39 @@
+name: AI Security Audit
+
+on:
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Install common tools defined in your SKILL.md
+      - name: Install Security Tools
+        run: |
+          npm install -g snyk
+          pip install bandit pip-audit
+          # Add other tools like Checkov or Trivy here
+
+      - name: Run AI Audit Skill
+        # This step assumes you are using a CLI tool or wrapper 
+        # that invokes your .claude/security-audit.md skill.
+        run: |
+          echo "Starting Security Audit based on .claude/security-audit.md..."
+          # Replace with your actual execution command
+          # example: claude-code execute .claude/security-audit.md
+          
+      - name: Validate Audit Results
+        # Runs the logic defined in your TEST_PLAN.md
+        run: |
+          echo "Validating audit integrity via .claude/TEST_PLAN.md..."
+          # Logic to ensure the audit didn't skip phases or fail silenty

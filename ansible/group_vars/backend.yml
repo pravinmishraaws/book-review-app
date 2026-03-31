@@ -1,8 +1,0 @@
-backend_repo_url: "https://github.com/pravinmishraaws/book-review-app.git"
-backend_app_port: 3001
-db_host: "bookreview-db.mysql.database.azure.com"
-db_user: "mysqladmin"
-db_password: "DevSecureDBPassword123!"
-db_name: "book_review_db"
-jwt_secret: "your_jwt_secret"
-allowed_origins: "http://135.119.137.20:3000"

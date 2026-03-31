@@ -50,3 +50,12 @@ Thumbs.db
 # Database Tools & Dumps
 *.sql
 *.sqlite
+
+.claude/settings.local.json
+.mcp.json
+
+terraform/.terraform/
+# .terraform.lock.hcl is intentionally NOT ignored — commit it to pin provider versions
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
+terraform/tf-plan

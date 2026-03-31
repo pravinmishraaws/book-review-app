@@ -1,8 +1,0 @@
-- name: Restart backend with PM2
-  shell: |
-    cd /opt/backend/backend
-    pm2 delete book-review-backend || true
-    pm2 start ecosystem.config.js
-    pm2 save
-  args:
-    executable: /bin/bash

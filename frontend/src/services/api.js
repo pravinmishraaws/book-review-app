@@ -1,7 +1,9 @@
 import axios from "axios";
 
-// Ensure API_URL does NOT contain `/api`
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+// NEXT_PUBLIC_API_URL must be set at build time (e.g. http://<appgw-ip>).
+// Falls back to empty string so calls use relative URLs in production,
+// keeping the build functional behind any reverse proxy or AppGateway.
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 // General function to handle errors
 const handleApiError = (error, defaultMessage) => {

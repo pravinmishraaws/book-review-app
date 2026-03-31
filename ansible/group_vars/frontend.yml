@@ -1,3 +1,0 @@
-frontend_repo_url: "https://github.com/pravinmishraaws/book-review-app.git"
-frontend_app_port: 3000
-backend_api_url: "http://172.203.68.45:3001"
