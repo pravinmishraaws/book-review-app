@@ -1,54 +1,54 @@
 variable "project_name" {
-  type    = string
-  default = "bookreview"
+  description = "Short name for the project, used as a prefix in all resource names"
+  type        = string
+  default     = "bookreview"
 }
 
 variable "environment" {
-  type    = string
-  default = "prod"
+  description = "Deployment environment (e.g. prod, staging, dev)"
+  type        = string
+  default     = "prod"
 }
 
 variable "location" {
-  type    = string
-  default = "South Africa North"
-}
-
-variable "location_short" {
-  type    = string
-  default = "southafricanorth"
+  description = "Azure region where all resources will be deployed"
+  type        = string
+  default     = "South Africa North"
 }
 
 variable "my_safe_ip" {
-  description = "Your public IP for SSH and AppGateway access"
+  description = "Your public IP address in CIDR notation for SSH access (e.g. 203.0.113.5/32)"
   type        = string
 }
 
 variable "admin_username" {
-  description = "User name to access virtual machines"
+  description = "Linux admin username for the virtual machines"
   type        = string
   default     = "azureuser"
 }
 
 variable "administrator_login" {
-  description = "Username for database login"
+  description = "Admin username for the MySQL Flexible Server"
   type        = string
   default     = "mysqladmin"
 }
 
 variable "db_admin_password" {
-  description = "Password for MySQL. Set this in terraform.tfvars"
+  description = "Admin password for MySQL. Never set in terraform.tfvars — use TF_VAR_db_admin_password env var"
   type        = string
   sensitive   = true
 }
 
 variable "vm_size" {
-  type    = string
-  default = "Standard_B2ats_v2"
+  description = "Azure VM SKU for both frontend and backend virtual machines"
+  type        = string
+  default     = "Standard_B2ats_v2"
 }
 
 variable "appgw_capacity" {
-  type    = number
-  default = 1
+  description = "Number of Application Gateway instances (min 1 for Standard_v2)"
+  type        = number
+  default     = 1
 }
 
 variable "repo_url" {
