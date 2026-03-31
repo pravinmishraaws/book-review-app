@@ -50,7 +50,7 @@ resource "azurerm_linux_virtual_machine" "frontend_vm" {
     publisher = "Canonical"
     offer     = "ubuntu-24_04-lts"
     sku       = "server"
-    version   = "latest"
+    version   = "24.04.202502210"
   }
 }
 
@@ -91,7 +91,7 @@ resource "azurerm_linux_virtual_machine" "backend_vm" {
     publisher = "Canonical"
     offer     = "ubuntu-24_04-lts"
     sku       = "server"
-    version   = "latest"
+    version   = "24.04.202502210"
   }
 
   custom_data = base64encode(<<EOF
