@@ -12,7 +12,7 @@ const handleApiError = (error, defaultMessage) => {
 
 export const registerUser = async (userData) => {
   try {
-    const response = await axios.post(`${API_URL}/api/users/register`, userData);
+    const response = await axios.post(`${API_URL}/users/register`, userData);
     return response.data;
   } catch (error) {
     throw new Error(handleApiError(error, "Registration failed"));
@@ -21,7 +21,7 @@ export const registerUser = async (userData) => {
 
 export const loginUser = async (userData) => {
   try {
-    const response = await axios.post(`${API_URL}/api/users/login`, userData);
+    const response = await axios.post(`${API_URL}/users/login`, userData);
     return response.data;
   } catch (error) {
     throw new Error(handleApiError(error, "Login failed"));
@@ -32,7 +32,7 @@ export const loginUser = async (userData) => {
 
 export const fetchBooks = async () => {
   try {
-    const response = await axios.get(`${API_URL}/api/books`);
+    const response = await axios.get(`${API_URL}/books`);
     return response.data;
   } catch (error) {
     throw new Error(handleApiError(error, "Failed to fetch books"));
@@ -41,7 +41,7 @@ export const fetchBooks = async () => {
 
 export const fetchBookDetails = async (bookId) => {
   try {
-    const response = await axios.get(`${API_URL}/api/books/${bookId}`);
+    const response = await axios.get(`${API_URL}/books/${bookId}`);
     return response.data;
   } catch (error) {
     throw new Error(handleApiError(error, "Failed to fetch book details"));
@@ -52,7 +52,7 @@ export const fetchBookDetails = async (bookId) => {
 
 export const fetchReviews = async (bookId) => {
   try {
-    const response = await axios.get(`${API_URL}/api/reviews/${bookId}`);
+    const response = await axios.get(`${API_URL}/reviews/${bookId}`);
     return response.data;
   } catch (error) {
     throw new Error(handleApiError(error, "Failed to fetch reviews"));
@@ -61,7 +61,7 @@ export const fetchReviews = async (bookId) => {
 
 export const submitReview = async (reviewData, token) => {
   try {
-    const response = await axios.post(`${API_URL}/api/reviews`, reviewData, {
+    const response = await axios.post(`${API_URL}/reviews`, reviewData, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.data;
