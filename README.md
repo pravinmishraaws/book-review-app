@@ -138,3 +138,4 @@ Students will gain hands-on experience in:
 This Book Review App serves as one of the **4 real-world DevOps projects** taught in the course.
 
 #### Testing CICD Pipeline
+Deployment completed by Bestman
