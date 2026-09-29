@@ -138,3 +138,21 @@ Students will gain hands-on experience in:
 This Book Review App serves as one of the **4 real-world DevOps projects** taught in the course.
 
 #### Testing CICD Pipeline
+
+ 
+ Full Deployment Summary — Book Review App on AWS
+I started by designing the network foundation, creating a custom VPC with a CIDR block of 10.0.0.0/16 and six subnets spread across two availability zones — two public subnets for the web tier and four private subnets split between the app and database tiers. I attached an Internet Gateway for public internet access and configured separate route tables for public and private subnets.
+With the network in place, I created five security groups to control traffic between tiers, chaining them together so each tier only accepts traffic from the one directly in front of it — a pattern that ensures no layer is directly exposed to the internet except the public ALB.
+Next I provisioned a MySQL 8.0 RDS instance in the private DB subnets with Multi-AZ enabled for high availability. I later returned to create a read replica in a separate availability zone after realising it was missed during the initial setup.
+To access the private app EC2, I launched a bastion host in the public subnet, copied my PEM key to it, and used it as a jump box to SSH into the private instance. Once inside, I installed Node.js 20, cloned the Book Review application repository, configured the environment variables to point to the RDS endpoint, created the database manually via MySQL client, and started the backend with PM2 to keep it running persistently.
+I then created the Internal ALB with a target group pointing to the app EC2 on port 5000, which gave the frontend a stable DNS endpoint to communicate with the backend. On the web EC2, I installed Node.js, Nginx, and PM2, built the Next.js frontend, configured the .env.local file with the Internal ALB DNS, and set up Nginx as a reverse proxy to forward port 80 traffic to the Next.js app running on port 3000. Finally I created a Public Internet-facing ALB with a target group pointing to the web EC2, and confirmed the app was fully accessible in the browser.
+For the architecture diagram I used draw.io, manually placing AWS components tier by tier, connecting them with directional arrows, and colour-coding each tier for visual clarity.
+
+What I Learned
+I learned how to design and implement a proper three-tier architecture on AWS where each layer is isolated from the others through subnet placement and security group chaining. I understood the difference between a public and internal ALB and why the scheme cannot be changed after creation. I also learned that private EC2 instances need a NAT Gateway to access the internet for package installation, even though they themselves remain unreachable from outside. Working through the environment variable names in the source code taught me the importance of inspecting the actual application code rather than assuming variable names. I also understood the difference between Multi-AZ (high availability through automatic failover) and a Read Replica (scalability through read offloading).
+Issues Faced
+The first major issue was that sudo apt update failed on the private EC2 with a network unreachable error — this was caused by a missing NAT Gateway route in the private route table, which I fixed by creating a NAT Gateway in the public subnet and adding a 0.0.0.0/0 route pointing to it.
+The backend failed to start initially because the database bookreviews did not exist on RDS — it had to be created manually by connecting to RDS via the MySQL client and running CREATE DATABASE bookreviews.
+The Public ALB was accidentally created as Internal instead of Internet-facing — since the scheme cannot be edited after creation, I had to delete it and recreate it correctly.
+The app EC2 security group initially had SSH open to 0.0.0.0/0 which is a security risk — I removed that rule and restricted SSH access to the bastion security group only.
+PM2 had to be installed separately on the web EC2 since it was only installed on the app EC2 earlier, and the read replica had to be created in a second pass after being missed during the initial RDS setup.

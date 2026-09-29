@@ -1,5 +1,5 @@
 ## **Book Review App - Frontend**  
-This is the **frontend** of the **Book Review App**, built with **Next.js and Tailwind CSS**. It provides an interactive interface for users to:  
+This is the **frontend** of the **Book Review App**, built with **Next.js and Tailwind CSS**. It provides an interactive interface for users to view:  
 - Browse books and reviews  
 - Register and log in  
 - Submit reviews (if logged in)  
