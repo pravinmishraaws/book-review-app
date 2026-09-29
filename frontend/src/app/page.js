@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">Book Review App</h1>
+      <h1 className="text-3xl font-bold text-center mb-6">Welcome to Book Reviews App</h1>
 
       {loading ? (
         <p className="text-center text-gray-600">Loading books...</p>
