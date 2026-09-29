@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://claude.ai/chat/db570d0d-dc3f-4762-9154-1df627d4783b
+HostUrl=https://claude.ai/api/organizations/0bc345a0-08a8-49cb-82f1-cb5d121e3fd1/conversations/db570d0d-dc3f-4762-9154-1df627d4783b/wiggle/download-file?path=%2Fmnt%2Fuser-data%2Foutputs%2Farchitecture-diagram.svg
